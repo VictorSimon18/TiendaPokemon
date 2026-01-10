@@ -1,0 +1,90 @@
+/* ==================== */
+/* TEMA TIPO AGUA       */
+/* ==================== */
+
+.water-theme {
+    background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.water-hero {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 5px 20px rgba(79, 172, 254, 0.3);
+}
+
+.water-placeholder {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.water-theme .navbar {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.water-theme .btn-primary {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.water-theme .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+}
+
+.water-theme .product-price {
+    color: #4facfe;
+}
+
+.water-theme .btn-add-cart {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.water-theme .btn-add-cart:hover {
+    background: linear-gradient(135deg, #3d9cee 0%, #00d8ee 100%);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.water-theme .section-title {
+    color: #4facfe;
+}
+
+/* Efectos de ondas de agua */
+.water-theme .type-icon {
+    animation: waterFlow 3s ease-in-out infinite;
+}
+
+@keyframes waterFlow {
+    0%, 100% {
+        text-shadow: 0 0 10px #4facfe, 0 0 20px #4facfe, 0 0 30px #4facfe;
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 0 0 20px #00f2fe, 0 0 30px #00f2fe, 0 0 40px #00f2fe;
+        transform: scale(1.05);
+    }
+}
+
+.water-theme .product-card:hover {
+    box-shadow: 0 15px 30px rgba(79, 172, 254, 0.3);
+}
+
+/* Efecto de burbujas */
+.water-theme .hero-content::before {
+    content: '💧';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: bubbles 4s ease-in-out infinite;
+}
+
+@keyframes bubbles {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-40px) scale(0.9);
+        opacity: 0;
+    }
+}

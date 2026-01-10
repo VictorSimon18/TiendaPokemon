@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Tipo Planta - Tienda Pokemon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/grass.css">
+</head>
+<body class="grass-theme">
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎮 Tienda Pokemon</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="fire.html">Tipo Fuego</a></li>
+                <li><a href="water.html">Tipo Agua</a></li>
+                <li><a href="grass.html" class="active">Tipo Planta</a></li>
+                <li><a href="location.html">Ubicación</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="cartBtn" class="cart-btn">
+                    🛒 Carrito <span id="cartCount" class="cart-count">0</span>
+                </button>
+                <button id="loginBtn" class="login-btn">Iniciar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="type-hero grass-hero">
+        <div class="hero-content">
+            <div class="type-icon">🌿</div>
+            <h2 class="hero-title">Pokemon Tipo Planta</h2>
+            <p class="hero-subtitle">Conecta con la naturaleza a través de estos increíbles Pokemon</p>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Figuritas Disponibles</h2>
+            <div class="products-grid">
+                <!-- Producto 1: Venusaur -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder grass-placeholder">
+                            <span class="pokemon-number">#003</span>
+                            <div class="pokemon-name-display">Venusaur</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Venusaur</h3>
+                        <p class="product-description">El poderoso Pokemon con flor gigante. Figura premium de 15cm con base.</p>
+                        <div class="product-footer">
+                            <span class="product-price">34.99€</span>
+                            <button class="btn btn-add-cart" data-id="grass-1" data-name="Venusaur" data-price="34.99" data-type="planta">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Sceptile -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder grass-placeholder">
+                            <span class="pokemon-number">#254</span>
+                            <div class="pokemon-name-display">Sceptile</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sceptile</h3>
+                        <p class="product-description">El veloz lagarto de la jungla. Figura de acción de 14cm con hojas articuladas.</p>
+                        <div class="product-footer">
+                            <span class="product-price">29.99€</span>
+                            <button class="btn btn-add-cart" data-id="grass-2" data-name="Sceptile" data-price="29.99" data-type="planta">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Leafeon -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder grass-placeholder">
+                            <span class="pokemon-number">#470</span>
+                            <div class="pokemon-name-display">Leafeon</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Leafeon</h3>
+                        <p class="product-description">La evolución frondosa de Eevee. Figura detallada de 10cm con hojas.</p>
+                        <div class="product-footer">
+                            <span class="product-price">24.99€</span>
+                            <button class="btn btn-add-cart" data-id="grass-3" data-name="Leafeon" data-price="24.99" data-type="planta">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Torterra -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder grass-placeholder">
+                            <span class="pokemon-number">#389</span>
+                            <div class="pokemon-name-display">Torterra</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Torterra</h3>
+                        <p class="product-description">El Pokemon continente. Figura deluxe de 16cm con árbol y montaña.</p>
+                        <div class="product-footer">
+                            <span class="product-price">37.99€</span>
+                            <button class="btn btn-add-cart" data-id="grass-4" data-name="Torterra" data-price="37.99" data-type="planta">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5: Decidueye -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder grass-placeholder">
+                            <span class="pokemon-number">#724</span>
+                            <div class="pokemon-name-display">Decidueye</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Decidueye</h3>
+                        <p class="product-description">El arquero búho de Alola. Figura de 13cm con arco y flechas de plumas.</p>
+                        <div class="product-footer">
+                            <span class="product-price">32.99€</span>
+                            <button class="btn btn-add-cart" data-id="grass-5" data-name="Decidueye" data-price="32.99" data-type="planta">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tienda Pokemon</h3>
+                <p>Tu tienda de confianza para figuritas coleccionables de Pokemon</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="fire.html">Tipo Fuego</a></li>
+                    <li><a href="water.html">Tipo Agua</a></li>
+                    <li><a href="grass.html">Tipo Planta</a></li>
+                    <li><a href="location.html">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📧 info@tiendapokemon.com</p>
+                <p>📞 +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tienda Pokemon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Carrito</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Los items se cargarán dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total:</strong> <span id="cartTotal">0.00€</span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-primary">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

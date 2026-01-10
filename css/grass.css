@@ -1,0 +1,118 @@
+/* ==================== */
+/* TEMA TIPO PLANTA     */
+/* ==================== */
+
+.grass-theme {
+    background: linear-gradient(to bottom, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.grass-hero {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    box-shadow: 0 5px 20px rgba(67, 233, 123, 0.3);
+}
+
+.grass-placeholder {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.grass-theme .navbar {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.grass-theme .btn-primary {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.grass-theme .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+}
+
+.grass-theme .product-price {
+    color: #43e97b;
+}
+
+.grass-theme .btn-add-cart {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.grass-theme .btn-add-cart:hover {
+    background: linear-gradient(135deg, #32d96b 0%, #28e9c7 100%);
+    box-shadow: 0 4px 15px rgba(67, 233, 123, 0.4);
+}
+
+.grass-theme .section-title {
+    color: #43e97b;
+}
+
+/* Efectos de naturaleza */
+.grass-theme .type-icon {
+    animation: leafSway 3s ease-in-out infinite;
+}
+
+@keyframes leafSway {
+    0%, 100% {
+        text-shadow: 0 0 10px #43e97b, 0 0 20px #43e97b, 0 0 30px #43e97b;
+        transform: rotate(-5deg);
+    }
+    50% {
+        text-shadow: 0 0 20px #38f9d7, 0 0 30px #38f9d7, 0 0 40px #38f9d7;
+        transform: rotate(5deg);
+    }
+}
+
+.grass-theme .product-card:hover {
+    box-shadow: 0 15px 30px rgba(67, 233, 123, 0.3);
+}
+
+/* Efecto de crecimiento */
+.grass-theme .hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.grass-theme .hero::after {
+    content: '🌱';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    font-size: 3rem;
+    opacity: 0.2;
+    animation: grow 4s ease-in-out infinite;
+}
+
+@keyframes grow {
+    0% {
+        transform: translateY(20px) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-30px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Hover con efecto de hojas */
+.grass-theme .product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.grass-theme .product-card::before {
+    content: '🍃';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.grass-theme .product-card:hover::before {
+    opacity: 0.6;
+    transform: rotate(20deg);
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Pokemon - Figuritas Coleccionables</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎮 Tienda Pokemon</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="fire.html">Tipo Fuego</a></li>
+                <li><a href="water.html">Tipo Agua</a></li>
+                <li><a href="grass.html">Tipo Planta</a></li>
+                <li><a href="location.html">Ubicación</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="cartBtn" class="cart-btn">
+                    🛒 Carrito <span id="cartCount" class="cart-count">0</span>
+                </button>
+                <button id="loginBtn" class="login-btn">Iniciar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">¡Colecciona tus Pokemon Favoritos!</h2>
+            <p class="hero-subtitle">Descubre nuestra increíble colección de figuritas de Pokemon de tipos Fuego, Agua y Planta</p>
+            <div class="hero-buttons">
+                <a href="#categories" class="btn btn-primary">Explorar Categorías</a>
+                <a href="location.html" class="btn btn-secondary">Visítanos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section id="categories" class="categories">
+        <h2 class="section-title">Explora por Tipo</h2>
+        <div class="categories-grid">
+            <a href="fire.html" class="category-card fire-card">
+                <div class="category-icon">🔥</div>
+                <h3>Tipo Fuego</h3>
+                <p>Descubre figuritas de Pokemon de tipo Fuego</p>
+                <span class="category-btn">Ver Colección →</span>
+            </a>
+            <a href="water.html" class="category-card water-card">
+                <div class="category-icon">💧</div>
+                <h3>Tipo Agua</h3>
+                <p>Descubre figuritas de Pokemon de tipo Agua</p>
+                <span class="category-btn">Ver Colección →</span>
+            </a>
+            <a href="grass.html" class="category-card grass-card">
+                <div class="category-icon">🌿</div>
+                <h3>Tipo Planta</h3>
+                <p>Descubre figuritas de Pokemon de tipo Planta</p>
+                <span class="category-btn">Ver Colección →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="features">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✅</div>
+                <h3>Calidad Garantizada</h3>
+                <p>Figuritas oficiales y de alta calidad</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <h3>Envío Rápido</h3>
+                <p>Recibe tus Pokemon en 2-3 días hábiles</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💳</div>
+                <h3>Pago Seguro</h3>
+                <p>Múltiples métodos de pago disponibles</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⭐</div>
+                <h3>Ediciones Limitadas</h3>
+                <p>Figuritas exclusivas y difíciles de encontrar</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tienda Pokemon</h3>
+                <p>Tu tienda de confianza para figuritas coleccionables de Pokemon</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="fire.html">Tipo Fuego</a></li>
+                    <li><a href="water.html">Tipo Agua</a></li>
+                    <li><a href="grass.html">Tipo Planta</a></li>
+                    <li><a href="location.html">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📧 info@tiendapokemon.com</p>
+                <p>📞 +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tienda Pokemon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Carrito</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Los items se cargarán dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total:</strong> <span id="cartTotal">0.00€</span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-primary">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

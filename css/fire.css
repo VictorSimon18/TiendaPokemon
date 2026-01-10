@@ -1,0 +1,64 @@
+/* ==================== */
+/* TEMA TIPO FUEGO      */
+/* ==================== */
+
+.fire-theme {
+    background: linear-gradient(to bottom, #fff5f5 0%, #ffe5e5 100%);
+}
+
+.fire-hero {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+}
+
+.fire-placeholder {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+}
+
+.fire-theme .navbar {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+}
+
+.fire-theme .btn-primary {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    color: white;
+}
+
+.fire-theme .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.fire-theme .product-price {
+    color: #ff6b6b;
+}
+
+.fire-theme .btn-add-cart {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+}
+
+.fire-theme .btn-add-cart:hover {
+    background: linear-gradient(135deg, #ee5a6f 0%, #ff7a43 100%);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.fire-theme .section-title {
+    color: #ff6b6b;
+}
+
+/* Efectos de partículas de fuego */
+.fire-theme .type-icon {
+    animation: fireGlow 2s ease-in-out infinite;
+}
+
+@keyframes fireGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
+    }
+    50% {
+        text-shadow: 0 0 20px #ff8e53, 0 0 30px #ff8e53, 0 0 40px #ff8e53;
+    }
+}
+
+.fire-theme .product-card:hover {
+    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+}

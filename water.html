@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Tipo Agua - Tienda Pokemon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/water.css">
+</head>
+<body class="water-theme">
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎮 Tienda Pokemon</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="fire.html">Tipo Fuego</a></li>
+                <li><a href="water.html" class="active">Tipo Agua</a></li>
+                <li><a href="grass.html">Tipo Planta</a></li>
+                <li><a href="location.html">Ubicación</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="cartBtn" class="cart-btn">
+                    🛒 Carrito <span id="cartCount" class="cart-count">0</span>
+                </button>
+                <button id="loginBtn" class="login-btn">Iniciar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="type-hero water-hero">
+        <div class="hero-content">
+            <div class="type-icon">💧</div>
+            <h2 class="hero-title">Pokemon Tipo Agua</h2>
+            <p class="hero-subtitle">Explora las profundidades con los Pokemon acuáticos más poderosos</p>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Figuritas Disponibles</h2>
+            <div class="products-grid">
+                <!-- Producto 1: Blastoise -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder water-placeholder">
+                            <span class="pokemon-number">#009</span>
+                            <div class="pokemon-name-display">Blastoise</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Blastoise</h3>
+                        <p class="product-description">La tortuga blindada con cañones de agua. Figura premium de 15cm.</p>
+                        <div class="product-footer">
+                            <span class="product-price">34.99€</span>
+                            <button class="btn btn-add-cart" data-id="water-1" data-name="Blastoise" data-price="34.99" data-type="agua">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Gyarados -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder water-placeholder">
+                            <span class="pokemon-number">#130</span>
+                            <div class="pokemon-name-display">Gyarados</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Gyarados</h3>
+                        <p class="product-description">El temible dragón marino. Figura articulada de 18cm de longitud.</p>
+                        <div class="product-footer">
+                            <span class="product-price">39.99€</span>
+                            <button class="btn btn-add-cart" data-id="water-2" data-name="Gyarados" data-price="39.99" data-type="agua">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Vaporeon -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder water-placeholder">
+                            <span class="pokemon-number">#134</span>
+                            <div class="pokemon-name-display">Vaporeon</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Vaporeon</h3>
+                        <p class="product-description">La evolución acuática de Eevee. Figura elegante de 10cm.</p>
+                        <div class="product-footer">
+                            <span class="product-price">24.99€</span>
+                            <button class="btn btn-add-cart" data-id="water-3" data-name="Vaporeon" data-price="24.99" data-type="agua">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Lapras -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder water-placeholder">
+                            <span class="pokemon-number">#131</span>
+                            <div class="pokemon-name-display">Lapras</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lapras</h3>
+                        <p class="product-description">El gentil transportador marino. Figura deluxe de 16cm con base acuática.</p>
+                        <div class="product-footer">
+                            <span class="product-price">36.99€</span>
+                            <button class="btn btn-add-cart" data-id="water-4" data-name="Lapras" data-price="36.99" data-type="agua">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5: Greninja -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder water-placeholder">
+                            <span class="pokemon-number">#658</span>
+                            <div class="pokemon-name-display">Greninja</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Greninja</h3>
+                        <p class="product-description">El ninja acuático de Kalos. Figura de acción de 13cm con kunais incluidos.</p>
+                        <div class="product-footer">
+                            <span class="product-price">31.99€</span>
+                            <button class="btn btn-add-cart" data-id="water-5" data-name="Greninja" data-price="31.99" data-type="agua">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tienda Pokemon</h3>
+                <p>Tu tienda de confianza para figuritas coleccionables de Pokemon</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="fire.html">Tipo Fuego</a></li>
+                    <li><a href="water.html">Tipo Agua</a></li>
+                    <li><a href="grass.html">Tipo Planta</a></li>
+                    <li><a href="location.html">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📧 info@tiendapokemon.com</p>
+                <p>📞 +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tienda Pokemon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Carrito</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Los items se cargarán dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total:</strong> <span id="cartTotal">0.00€</span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-primary">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

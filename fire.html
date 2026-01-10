@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Tipo Fuego - Tienda Pokemon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fire.css">
+</head>
+<body class="fire-theme">
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎮 Tienda Pokemon</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="fire.html" class="active">Tipo Fuego</a></li>
+                <li><a href="water.html">Tipo Agua</a></li>
+                <li><a href="grass.html">Tipo Planta</a></li>
+                <li><a href="location.html">Ubicación</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="cartBtn" class="cart-btn">
+                    🛒 Carrito <span id="cartCount" class="cart-count">0</span>
+                </button>
+                <button id="loginBtn" class="login-btn">Iniciar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="type-hero fire-hero">
+        <div class="hero-content">
+            <div class="type-icon">🔥</div>
+            <h2 class="hero-title">Pokemon Tipo Fuego</h2>
+            <p class="hero-subtitle">Descubre la pasión y el poder de los Pokemon de fuego</p>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Figuritas Disponibles</h2>
+            <div class="products-grid">
+                <!-- Producto 1: Charizard -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder fire-placeholder">
+                            <span class="pokemon-number">#006</span>
+                            <div class="pokemon-name-display">Charizard</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Charizard</h3>
+                        <p class="product-description">El poderoso dragón de fuego. Figura de edición coleccionista de 15cm.</p>
+                        <div class="product-footer">
+                            <span class="product-price">34.99€</span>
+                            <button class="btn btn-add-cart" data-id="fire-1" data-name="Charizard" data-price="34.99" data-type="fuego">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Arcanine -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder fire-placeholder">
+                            <span class="pokemon-number">#059</span>
+                            <div class="pokemon-name-display">Arcanine</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Arcanine</h3>
+                        <p class="product-description">El legendario Pokemon canino. Figura detallada de 12cm de altura.</p>
+                        <div class="product-footer">
+                            <span class="product-price">27.99€</span>
+                            <button class="btn btn-add-cart" data-id="fire-2" data-name="Arcanine" data-price="27.99" data-type="fuego">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Flareon -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder fire-placeholder">
+                            <span class="pokemon-number">#136</span>
+                            <div class="pokemon-name-display">Flareon</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Flareon</h3>
+                        <p class="product-description">La evolución de fuego de Eevee. Figura coleccionable de 10cm.</p>
+                        <div class="product-footer">
+                            <span class="product-price">24.99€</span>
+                            <button class="btn btn-add-cart" data-id="fire-3" data-name="Flareon" data-price="24.99" data-type="fuego">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Typhlosion -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder fire-placeholder">
+                            <span class="pokemon-number">#157</span>
+                            <div class="pokemon-name-display">Typhlosion</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Typhlosion</h3>
+                        <p class="product-description">El Pokemon volcán de Johto. Figura premium con llamas articuladas.</p>
+                        <div class="product-footer">
+                            <span class="product-price">29.99€</span>
+                            <button class="btn btn-add-cart" data-id="fire-4" data-name="Typhlosion" data-price="29.99" data-type="fuego">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5: Blaziken -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder fire-placeholder">
+                            <span class="pokemon-number">#257</span>
+                            <div class="pokemon-name-display">Blaziken</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Blaziken</h3>
+                        <p class="product-description">El luchador de fuego de Hoenn. Figura de acción de 14cm con poses dinámicas.</p>
+                        <div class="product-footer">
+                            <span class="product-price">32.99€</span>
+                            <button class="btn btn-add-cart" data-id="fire-5" data-name="Blaziken" data-price="32.99" data-type="fuego">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tienda Pokemon</h3>
+                <p>Tu tienda de confianza para figuritas coleccionables de Pokemon</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="fire.html">Tipo Fuego</a></li>
+                    <li><a href="water.html">Tipo Agua</a></li>
+                    <li><a href="grass.html">Tipo Planta</a></li>
+                    <li><a href="location.html">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>📧 info@tiendapokemon.com</p>
+                <p>📞 +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tienda Pokemon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Carrito</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Los items se cargarán dinámicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total:</strong> <span id="cartTotal">0.00€</span>
+                </div>
+                <button id="checkoutBtn" class="btn btn-primary">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
