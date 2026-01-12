@@ -3,116 +3,196 @@
 /* ==================== */
 
 .grass-theme {
-    background: linear-gradient(to bottom, #f0fdf4 0%, #dcfce7 100%);
+    background: linear-gradient(to bottom, #0f1e13 0%, #1a2e1f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Canvas para efectos interactivos */
+.grass-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .grass-hero {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-    box-shadow: 0 5px 20px rgba(67, 233, 123, 0.3);
+    background: linear-gradient(135deg, #2d5a3d 0%, #1e3d2a 100%);
+    box-shadow: 0 8px 32px rgba(45, 90, 61, 0.2);
+    position: relative;
+    z-index: 2;
 }
 
 .grass-placeholder {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #2d5a3d 0%, #3a7a4e 100%);
 }
 
 .grass-theme .navbar {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #1a2e1f 0%, #243a2b 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(45, 90, 61, 0.2);
 }
 
 .grass-theme .btn-primary {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #2d5a3d 0%, #3a7a4e 100%);
     color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .grass-theme .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+    box-shadow: 0 8px 24px rgba(45, 90, 61, 0.3);
+    transform: translateY(-2px);
 }
 
 .grass-theme .product-price {
-    color: #43e97b;
+    color: #5fb878;
+    font-weight: 700;
 }
 
 .grass-theme .btn-add-cart {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #2d5a3d 0%, #3a7a4e 100%);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .grass-theme .btn-add-cart:hover {
-    background: linear-gradient(135deg, #32d96b 0%, #28e9c7 100%);
-    box-shadow: 0 4px 15px rgba(67, 233, 123, 0.4);
+    background: linear-gradient(135deg, #3a7a4e 0%, #2d5a3d 100%);
+    box-shadow: 0 6px 20px rgba(45, 90, 61, 0.35);
 }
 
 .grass-theme .section-title {
-    color: #43e97b;
+    color: #5fb878;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* Efectos de naturaleza */
+/* Efectos sutiles de naturaleza */
 .grass-theme .type-icon {
-    animation: leafSway 3s ease-in-out infinite;
+    animation: leafSwaySubtle 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(45, 90, 61, 0.5));
 }
 
-@keyframes leafSway {
+@keyframes leafSwaySubtle {
     0%, 100% {
-        text-shadow: 0 0 10px #43e97b, 0 0 20px #43e97b, 0 0 30px #43e97b;
-        transform: rotate(-5deg);
+        text-shadow: 0 0 15px rgba(45, 90, 61, 0.6), 0 0 30px rgba(45, 90, 61, 0.4);
+        transform: rotate(-3deg);
     }
     50% {
-        text-shadow: 0 0 20px #38f9d7, 0 0 30px #38f9d7, 0 0 40px #38f9d7;
-        transform: rotate(5deg);
+        text-shadow: 0 0 25px rgba(95, 184, 120, 0.7), 0 0 40px rgba(95, 184, 120, 0.5);
+        transform: rotate(3deg);
     }
+}
+
+.grass-theme .product-card {
+    background: rgba(26, 46, 31, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(45, 90, 61, 0.15);
+    position: relative;
+    overflow: hidden;
 }
 
 .grass-theme .product-card:hover {
-    box-shadow: 0 15px 30px rgba(67, 233, 123, 0.3);
+    box-shadow: 0 15px 40px rgba(45, 90, 61, 0.25);
+    border-color: rgba(45, 90, 61, 0.3);
+    transform: translateY(-8px);
 }
 
-/* Efecto de crecimiento */
+/* Efecto de crecimiento sutil */
 .grass-theme .hero {
     position: relative;
     overflow: hidden;
 }
 
 .grass-theme .hero::after {
-    content: '🌱';
+    content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
-    font-size: 3rem;
-    opacity: 0.2;
-    animation: grow 4s ease-in-out infinite;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(95, 184, 120, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: growSubtle 5s ease-in-out infinite;
+    transform: translateX(-50%);
 }
 
-@keyframes grow {
+@keyframes growSubtle {
     0% {
-        transform: translateY(20px) scale(0.5);
+        transform: translateX(-50%) translateY(20px) scale(0.8);
         opacity: 0;
     }
     50% {
-        transform: translateY(-10px) scale(1);
+        transform: translateX(-50%) translateY(-10px) scale(1.2);
         opacity: 0.3;
     }
     100% {
-        transform: translateY(-30px) scale(1.2);
+        transform: translateX(-50%) translateY(-40px) scale(1.5);
         opacity: 0;
     }
 }
 
-/* Hover con efecto de hojas */
-.grass-theme .product-card {
-    position: relative;
-    overflow: hidden;
+/* Contenedor para hojas de cursor */
+#grass-cursor-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
 }
 
+.grass-leaf {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 12px solid rgba(95, 184, 120, 0.5);
+    pointer-events: none;
+    animation: leafFall 2s ease-out forwards;
+    filter: drop-shadow(0 0 3px rgba(95, 184, 120, 0.3));
+}
+
+@keyframes leafFall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(80px) translateX(var(--random-x, 0px)) rotate(180deg);
+    }
+}
+
+/* Hover con efecto de hojas sutil */
 .grass-theme .product-card::before {
-    content: '🍃';
+    content: '';
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 1.5rem;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(95, 184, 120, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
     opacity: 0;
     transition: all 0.3s ease;
 }
 
 .grass-theme .product-card:hover::before {
-    opacity: 0.6;
-    transform: rotate(20deg);
+    opacity: 1;
+    transform: scale(1.5);
 }

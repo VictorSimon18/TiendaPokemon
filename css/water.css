@@ -3,88 +3,163 @@
 /* ==================== */
 
 .water-theme {
-    background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 100%);
+    background: linear-gradient(to bottom, #0a1929 0%, #1e2d3d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Canvas para efectos interactivos */
+.water-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .water-hero {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    box-shadow: 0 5px 20px rgba(79, 172, 254, 0.3);
+    background: linear-gradient(135deg, #2c5f8d 0%, #1a3a52 100%);
+    box-shadow: 0 8px 32px rgba(44, 95, 141, 0.2);
+    position: relative;
+    z-index: 2;
 }
 
 .water-placeholder {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #2c5f8d 0%, #3a7ba8 100%);
 }
 
 .water-theme .navbar {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #1e2d3d 0%, #2a3f54 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(44, 95, 141, 0.2);
 }
 
 .water-theme .btn-primary {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #2c5f8d 0%, #3a7ba8 100%);
     color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .water-theme .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+    box-shadow: 0 8px 24px rgba(44, 95, 141, 0.3);
+    transform: translateY(-2px);
 }
 
 .water-theme .product-price {
-    color: #4facfe;
+    color: #5a9fd4;
+    font-weight: 700;
 }
 
 .water-theme .btn-add-cart {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #2c5f8d 0%, #3a7ba8 100%);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .water-theme .btn-add-cart:hover {
-    background: linear-gradient(135deg, #3d9cee 0%, #00d8ee 100%);
-    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+    background: linear-gradient(135deg, #3a7ba8 0%, #2c5f8d 100%);
+    box-shadow: 0 6px 20px rgba(44, 95, 141, 0.35);
 }
 
 .water-theme .section-title {
-    color: #4facfe;
+    color: #5a9fd4;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* Efectos de ondas de agua */
+/* Efectos sutiles de agua */
 .water-theme .type-icon {
-    animation: waterFlow 3s ease-in-out infinite;
+    animation: waterFlowSubtle 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(44, 95, 141, 0.5));
 }
 
-@keyframes waterFlow {
+@keyframes waterFlowSubtle {
     0%, 100% {
-        text-shadow: 0 0 10px #4facfe, 0 0 20px #4facfe, 0 0 30px #4facfe;
-        transform: scale(1);
+        text-shadow: 0 0 15px rgba(44, 95, 141, 0.6), 0 0 30px rgba(44, 95, 141, 0.4);
+        transform: scale(1) translateY(0);
     }
     50% {
-        text-shadow: 0 0 20px #00f2fe, 0 0 30px #00f2fe, 0 0 40px #00f2fe;
-        transform: scale(1.05);
+        text-shadow: 0 0 25px rgba(90, 159, 212, 0.7), 0 0 40px rgba(90, 159, 212, 0.5);
+        transform: scale(1.02) translateY(-3px);
     }
+}
+
+.water-theme .product-card {
+    background: rgba(30, 45, 61, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(44, 95, 141, 0.15);
 }
 
 .water-theme .product-card:hover {
-    box-shadow: 0 15px 30px rgba(79, 172, 254, 0.3);
+    box-shadow: 0 15px 40px rgba(44, 95, 141, 0.25);
+    border-color: rgba(44, 95, 141, 0.3);
+    transform: translateY(-8px);
 }
 
-/* Efecto de burbujas */
-.water-theme .hero-content::before {
-    content: '💧';
+/* Contenedor para burbujas de cursor */
+#water-cursor-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.water-bubble {
     position: absolute;
-    font-size: 2rem;
-    opacity: 0.3;
-    animation: bubbles 4s ease-in-out infinite;
+    background: radial-gradient(circle at 30% 30%, rgba(90, 159, 212, 0.4), rgba(44, 95, 141, 0.2) 50%, transparent 70%);
+    border: 1px solid rgba(90, 159, 212, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: bubbleRise 2s ease-out forwards;
 }
 
-@keyframes bubbles {
+@keyframes bubbleRise {
     0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.3;
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
     }
     50% {
-        transform: translateY(-20px) scale(1.1);
-        opacity: 0.5;
+        opacity: 0.7;
     }
     100% {
-        transform: translateY(-40px) scale(0.9);
         opacity: 0;
+        transform: translateY(-100px) translateX(var(--random-x, 0px)) scale(1.5);
+    }
+}
+
+/* Efecto de ondas sutiles */
+.water-theme .hero-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(90, 159, 212, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: rippleEffect 4s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rippleEffect {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.2;
     }
 }

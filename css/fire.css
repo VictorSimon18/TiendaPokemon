@@ -3,62 +3,136 @@
 /* ==================== */
 
 .fire-theme {
-    background: linear-gradient(to bottom, #fff5f5 0%, #ffe5e5 100%);
+    background: linear-gradient(to bottom, #1a1a1a 0%, #2d1f1f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Canvas para efectos interactivos */
+.fire-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .fire-hero {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+    background: linear-gradient(135deg, #c94545 0%, #8b2e2e 100%);
+    box-shadow: 0 8px 32px rgba(201, 69, 69, 0.2);
+    position: relative;
+    z-index: 2;
 }
 
 .fire-placeholder {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    background: linear-gradient(135deg, #c94545 0%, #b84a3a 100%);
 }
 
 .fire-theme .navbar {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    background: linear-gradient(135deg, #2d1f1f 0%, #3d2020 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 69, 69, 0.2);
 }
 
 .fire-theme .btn-primary {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    background: linear-gradient(135deg, #c94545 0%, #b84a3a 100%);
     color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .fire-theme .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 8px 24px rgba(201, 69, 69, 0.3);
+    transform: translateY(-2px);
 }
 
 .fire-theme .product-price {
-    color: #ff6b6b;
+    color: #e87d7d;
+    font-weight: 700;
 }
 
 .fire-theme .btn-add-cart {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    background: linear-gradient(135deg, #c94545 0%, #b84a3a 100%);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .fire-theme .btn-add-cart:hover {
-    background: linear-gradient(135deg, #ee5a6f 0%, #ff7a43 100%);
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(135deg, #b84a3a 0%, #c94545 100%);
+    box-shadow: 0 6px 20px rgba(201, 69, 69, 0.35);
 }
 
 .fire-theme .section-title {
-    color: #ff6b6b;
+    color: #e87d7d;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* Efectos de partículas de fuego */
+/* Efectos sutiles de fuego */
 .fire-theme .type-icon {
-    animation: fireGlow 2s ease-in-out infinite;
+    animation: fireGlowSubtle 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(201, 69, 69, 0.5));
 }
 
-@keyframes fireGlow {
+@keyframes fireGlowSubtle {
     0%, 100% {
-        text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
+        text-shadow: 0 0 15px rgba(201, 69, 69, 0.6), 0 0 30px rgba(201, 69, 69, 0.4);
+        transform: scale(1);
     }
     50% {
-        text-shadow: 0 0 20px #ff8e53, 0 0 30px #ff8e53, 0 0 40px #ff8e53;
+        text-shadow: 0 0 25px rgba(232, 125, 125, 0.7), 0 0 40px rgba(232, 125, 125, 0.5);
+        transform: scale(1.03);
     }
+}
+
+.fire-theme .product-card {
+    background: rgba(45, 31, 31, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 69, 69, 0.15);
 }
 
 .fire-theme .product-card:hover {
-    box-shadow: 0 15px 30px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 15px 40px rgba(201, 69, 69, 0.25);
+    border-color: rgba(201, 69, 69, 0.3);
+    transform: translateY(-8px);
+}
+
+/* Contenedor para partículas de cursor */
+#fire-cursor-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.fire-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #ff6b3a 0%, #c94545 50%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatUp 1.5s ease-out forwards;
+    filter: blur(1px);
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-80px) translateX(var(--random-x, 0px)) scale(0.3);
+    }
 }
