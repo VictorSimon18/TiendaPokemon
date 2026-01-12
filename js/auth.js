@@ -2,15 +2,57 @@
 // AUTENTICACIÓN        //
 // ==================== //
 
+// Import Firebase Auth
+import { auth, googleProvider } from './firebase-config.js';
+import {
+    signInWithPopup,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+} from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+
 class Auth {
     constructor() {
-        this.user = this.getUser();
+        this.user = null;
         this.init();
     }
 
     init() {
-        this.updateAuthUI();
+        this.setupAuthStateListener();
         this.setupEventListeners();
+    }
+
+    setupAuthStateListener() {
+        // Firebase's onAuthStateChanged automatically handles auth state persistence
+        onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) {
+                // User is signed in
+                this.handleAuthStateChange(firebaseUser);
+            } else {
+                // User is signed out
+                this.user = null;
+                localStorage.removeItem('user');
+                this.updateAuthUI();
+            }
+        });
+    }
+
+    handleAuthStateChange(firebaseUser) {
+        // Convert Firebase user to our localStorage format for compatibility with cart.js
+        const user = {
+            name: firebaseUser.displayName || firebaseUser.email.split('@')[0],
+            email: firebaseUser.email,
+            provider: firebaseUser.providerData[0]?.providerId.includes('google') ? 'google' : 'email',
+            avatar: firebaseUser.photoURL || '👤',
+            loginDate: new Date().toISOString(),
+            uid: firebaseUser.uid // Store Firebase UID for reference
+        };
+
+        this.user = user;
+        // Maintain localStorage compatibility for cart.js
+        localStorage.setItem('user', JSON.stringify(user));
+        this.updateAuthUI();
     }
 
     setupEventListeners() {
@@ -51,29 +93,21 @@ class Auth {
         }
     }
 
-    loginWithGoogle() {
-        // Simulación de login con Google
-        const userName = prompt('Simulación de Google Login\n\n¿Cuál es tu nombre?', 'Usuario Pokemon');
-
-        if (userName && userName.trim()) {
-            const user = {
-                name: userName.trim(),
-                email: `${userName.toLowerCase().replace(/\s+/g, '')}@gmail.com`,
-                provider: 'google',
-                avatar: '👤',
-                loginDate: new Date().toISOString()
-            };
-
-            this.setUser(user);
-            this.showSuccessMessage(`¡Bienvenido, ${user.name}!`);
+    async loginWithGoogle() {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            // handleAuthStateChange will be called automatically via onAuthStateChanged
+            this.showSuccessMessage(`¡Bienvenido, ${result.user.displayName || result.user.email}!`);
 
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1500);
+        } catch (error) {
+            this.handleAuthError(error);
         }
     }
 
-    loginWithEmail(form) {
+    async loginWithEmail(form) {
         const email = form.email.value;
         const password = form.password.value;
 
@@ -82,59 +116,79 @@ class Auth {
             return;
         }
 
-        // Simulación de login con email
-        const user = {
-            name: email.split('@')[0],
-            email: email,
-            provider: 'email',
-            avatar: '👤',
-            loginDate: new Date().toISOString()
-        };
-
-        this.setUser(user);
-        this.showSuccessMessage(`¡Bienvenido de vuelta, ${user.name}!`);
-
-        setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 1500);
-    }
-
-    register() {
-        // Simulación de registro
-        alert('Funcionalidad de registro\n\nEn una implementación real, aquí se mostraría un formulario de registro completo.');
-
-        const userName = prompt('Para esta demo, ingresa tu nombre:', 'Nuevo Usuario');
-        const userEmail = prompt('Ingresa tu email:', 'usuario@email.com');
-
-        if (userName && userEmail) {
-            const user = {
-                name: userName,
-                email: userEmail,
-                provider: 'email',
-                avatar: '👤',
-                loginDate: new Date().toISOString()
-            };
-
-            this.setUser(user);
-            this.showSuccessMessage(`¡Cuenta creada! Bienvenido, ${user.name}!`);
+        try {
+            const result = await signInWithEmailAndPassword(auth, email, password);
+            this.showSuccessMessage(`¡Bienvenido de vuelta, ${result.user.email}!`);
 
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1500);
+        } catch (error) {
+            this.handleAuthError(error);
         }
     }
 
-    logout() {
-        if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
-            localStorage.removeItem('user');
-            this.user = null;
-            this.updateAuthUI();
-            this.showSuccessMessage('Sesión cerrada correctamente');
+    async register() {
+        // For demo: prompt for email/password, then use Firebase
+        const email = prompt('Ingresa tu email:', 'usuario@email.com');
+
+        if (!email || email === 'usuario@email.com') {
+            return;
+        }
+
+        const password = prompt('Ingresa tu contraseña (mínimo 6 caracteres):', '');
+
+        if (!password) {
+            return;
+        }
+
+        try {
+            const result = await createUserWithEmailAndPassword(auth, email, password);
+            this.showSuccessMessage('¡Cuenta creada! Bienvenido!');
 
             setTimeout(() => {
                 window.location.href = 'index.html';
-            }, 1000);
+            }, 1500);
+        } catch (error) {
+            this.handleAuthError(error);
         }
+    }
+
+    async logout() {
+        if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+            try {
+                await signOut(auth);
+                // onAuthStateChanged will handle cleanup automatically
+                this.showSuccessMessage('Sesión cerrada correctamente');
+
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            } catch (error) {
+                this.handleAuthError(error);
+            }
+        }
+    }
+
+    handleAuthError(error) {
+        console.error('Auth error:', error);
+
+        // User-friendly error messages in Spanish
+        const errorMessages = {
+            'auth/user-not-found': 'Usuario no encontrado. ¿Necesitas crear una cuenta?',
+            'auth/wrong-password': 'Contraseña incorrecta. Intenta de nuevo.',
+            'auth/email-already-in-use': 'Este email ya está registrado. Intenta iniciar sesión.',
+            'auth/weak-password': 'La contraseña debe tener al menos 6 caracteres.',
+            'auth/invalid-email': 'El formato del email no es válido.',
+            'auth/popup-closed-by-user': 'Inicio de sesión cancelado.',
+            'auth/network-request-failed': 'Error de conexión. Verifica tu internet.',
+            'auth/too-many-requests': 'Demasiados intentos fallidos. Intenta más tarde.',
+            'auth/operation-not-allowed': 'Operación no permitida. Contacta al administrador.',
+            'auth/invalid-credential': 'Credenciales inválidas. Verifica tus datos.'
+        };
+
+        const message = errorMessages[error.code] || `Error de autenticación: ${error.message}`;
+        alert(message);
     }
 
     updateAuthUI() {
@@ -148,16 +202,6 @@ class Auth {
             loginBtn.textContent = 'Iniciar Sesión';
             loginBtn.title = 'Clic para iniciar sesión';
         }
-    }
-
-    setUser(user) {
-        localStorage.setItem('user', JSON.stringify(user));
-        this.user = user;
-    }
-
-    getUser() {
-        const saved = localStorage.getItem('user');
-        return saved ? JSON.parse(saved) : null;
     }
 
     showSuccessMessage(message) {
@@ -205,7 +249,10 @@ class Auth {
 }
 
 // Inicializar autenticación cuando se carga la página
-let auth;
+let authInstance;
 document.addEventListener('DOMContentLoaded', () => {
-    auth = new Auth();
+    authInstance = new Auth();
 });
+
+// Export for compatibility (in case other scripts reference it)
+export { authInstance as auth };
