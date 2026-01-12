@@ -196,7 +196,9 @@ class Auth {
         if (!loginBtn) return;
 
         if (this.user) {
-            loginBtn.textContent = `${this.user.avatar} ${this.user.name}`;
+            // Si el avatar es una URL (foto de Google), usar emoji por defecto
+            const displayAvatar = this.user.avatar.startsWith('http') ? '👤' : this.user.avatar;
+            loginBtn.textContent = `${displayAvatar} ${this.user.name}`;
             loginBtn.title = 'Clic para cerrar sesión';
         } else {
             loginBtn.textContent = 'Iniciar Sesión';
