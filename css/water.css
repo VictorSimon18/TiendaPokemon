@@ -5,7 +5,8 @@
 .water-theme {
     background: linear-gradient(to bottom, #0a1929 0%, #1e2d3d 100%);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Canvas para efectos interactivos */

@@ -5,7 +5,8 @@
 .grass-theme {
     background: linear-gradient(to bottom, #0f1e13 0%, #1a2e1f 100%);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Canvas para efectos interactivos */

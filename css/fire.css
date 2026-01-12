@@ -5,7 +5,8 @@
 .fire-theme {
     background: linear-gradient(to bottom, #1a1a1a 0%, #2d1f1f 100%);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Canvas para efectos interactivos */
